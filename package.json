@@ -1,0 +1,23 @@
+{
+  "name": "statuspilot",
+  "version": "0.1.1",
+  "description": "None",
+  "private": true,
+  "scripts": {
+    "start": "meteor",
+    "deploy": "DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com meteor deploy am.statuspilot.com --settings settings.json",
+    "deploy-win": "SET DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com && meteor deploy --settings settings.json am.statuspilot.com"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.20.0",
+    "bcrypt": "^1.0.3",
+    "jquery": "^3.2.1",
+    "meteor-node-stubs": "~0.2.4",
+    "stripe": "^5.1.0"
+  },
+  "keywords": [
+    "statuspilot",
+    "website"
+  ],
+  "author": "Anisuzzaman Khan"
+}

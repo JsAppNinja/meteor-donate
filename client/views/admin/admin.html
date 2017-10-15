@@ -1,0 +1,43 @@
+<template name="Admin">
+	<section id="inner-headline">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="breadcrumb">
+					<li><a href="/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+					<li>Admin<i class="icon-angle-right"></i></li>
+					<li class="active">Manage Users</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section id="content">
+	<div class="container">
+		<div class="row">
+			<div id="menu" class="col-sm-3 col-md-2">
+				<h2>
+				</h2>
+				{{> AdminSideMenu}}
+			</div>
+			<div id="subcontent" class="col-sm-9 col-md-10">
+				{{> yield region='AdminSubcontent'}}
+			</div>
+		</div>
+	</div>
+	</section>
+</template>
+
+<template name="AdminSideMenu">
+	<ul id="menu-items" class="nav nav-stacked nav-pills">
+		<li id="menu-item-simple" class="{{menuItemClass 'admin.users'}}">
+			<a href="{{pathFor 'admin.users'}}">
+				<span class="item-title">
+					Users
+				</span>
+			</a>
+		</li>
+	</ul>
+</template>
+

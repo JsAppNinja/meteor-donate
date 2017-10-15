@@ -1,0 +1,39 @@
+<head>
+	<meta charset="utf-8">
+	<title>Status Pilot</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="author" content="http://aniskhan001.me" />
+	<!-- Stylesheets -->
+	<link href="/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+	<link href="/css/jcarousel.css" rel="stylesheet" />
+	<link href="/css/flexslider.css" rel="stylesheet" />
+	<link href="/css/style.css" rel="stylesheet" />
+
+	<!-- Theme skin -->
+	<link href="/css/skins/default.css" rel="stylesheet" />
+</head>
+
+<template name="layout">
+	<div id="wrapper">
+		{{> siteHeader}}
+
+		{{> yield}}
+
+		{{> siteFooter}}
+	</div>
+	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+	<!-- JS files -->
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.fancybox.pack.js"></script>
+	<script src="/js/jquery.fancybox-media.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/portfolio/jquery.quicksand.js"></script>
+	<script src="/js/portfolio/setting.js"></script>
+	<script src="/js/jquery.flexslider.js"></script>
+	<script src="/js/animate.js"></script>
+	<script src="/js/custom.js"></script>
+</template>

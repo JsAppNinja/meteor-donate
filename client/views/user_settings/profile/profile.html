@@ -1,0 +1,95 @@
+<template name="UserSettingsProfile">
+	{{> UserSettingsProfileEditForm}}
+</template>
+
+<template name="UserSettingsProfileEditForm">
+	<div id="user-settings-profile-edit-form" class="">
+		<h2 id="component-title">
+			Edit your profile
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group field-profile-company">
+				<label for="profile.company">
+					Compnay
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.company" value="{{current_user_data.profile.company}}" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group field-profile-email">
+				<label for="profile.email">
+					E-mail
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.email" value="{{current_user_data.profile.email}}" class="form-control " required="required" data-type="email">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group field-profile-firstName">
+				<label for="profile.firstName">
+					First Name
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.firstName" value="{{current_user_data.profile.firstName}}" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group field-profile-lastName">
+				<label for="profile.lastName">
+					Last Name
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.lastName" value="{{current_user_data.profile.lastName}}" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group field-profile-cellPhone">
+				<label for="profile.cellPhone">
+					Cell Phone
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.cellPhone" value="{{current_user_data.profile.cellPhone}}" class="form-control" data-type="number">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="submit-div">
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						<span class="fa fa-check">
+						</span>
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

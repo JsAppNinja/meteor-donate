@@ -1,0 +1,35 @@
+.instagrams_form, #add_instagram_form {
+
+    .ig-account-feature {
+        margin-bottom: 10px;
+    
+        strong.feature-label {
+            padding-left: 10px;
+        }
+    
+        .params {
+            div {
+                margin: 10px;
+
+                $label-width: 65px;
+
+                label {
+                    display: inline-block;
+                    width: $label-width;
+                    font-weight: 600;
+                }
+
+                input {
+                    margin-bottom: 10px;
+                    display: inline-block;
+                    width: calc(100% - #{$label-width} - 5px);
+                }
+            }
+        }
+    }
+
+    .form-group:last-child {
+        margin-top: 30px;
+    }
+
+}

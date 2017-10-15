@@ -1,0 +1,65 @@
+<template name="UserSettingsChangePass">
+	<form id="change_pass_form" role="form">
+		<h2>
+			Change password
+		</h2>
+		{{#if errorMessage}}
+		<div class="alert alert-warning">
+			{{errorMessage}}
+		</div>
+		{{/if}}
+
+		{{#if infoMessage}}
+		<div class="alert alert-success">
+			{{infoMessage}}
+		</div>
+		{{/if}}
+
+		<div class="form-group">
+			<label for="old_password">
+				Your old password
+			</label>
+			<div class="input-div">
+				<input id="old_password" type="password" class="form-control" placeholder="Your old password" required>
+				<span id="help-text" class="help-block">
+				</span>
+				<span id="error-text" class="help-block">
+				</span>
+			</div>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="new_password">
+				Set a new password
+			</label>
+			<div class="input-div">
+				<input id="new_password" type="password" class="form-control" placeholder="Your new password" required>
+				<span id="help-text" class="help-block">
+				</span>
+				<span id="error-text" class="help-block">
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="confirm_pass">
+				Confirm password
+			</label>
+			<div class="input-div">
+				<input id="confirm_pass" type="password" class="form-control" placeholder="New password again" required>
+				<span id="help-text" class="help-block">
+				</span>
+				<span id="error-text" class="help-block">
+				</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="submit-div">
+				<button id="form-submit-button" class="btn btn-success" type="submit" data-loading-text="Please wait...">
+					<span class="fa fa-check"></span>
+					Update
+				</button>
+			</div>
+		</div>
+	</form>
+</template>

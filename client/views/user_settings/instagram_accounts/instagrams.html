@@ -1,0 +1,51 @@
+<template name="UserSettingsInstagrams">
+	<h2>
+		Instagram Accounts
+		<a class="btn btn-theme pull-right" href="{{pathFor 'user_settings.add_instagram_account'}}">Add account</a>
+	</h2>
+	{{#if errorMessage}}
+	<div class="alert alert-warning">
+		{{errorMessage}}
+	</div>
+	{{/if}}
+
+	{{#if infoMessage}}
+	<div class="alert alert-success">
+		{{{infoMessage}}}
+	</div>
+	{{/if}}
+
+	{{#each InstagramAccounts}}
+		{{> InstagramAccountSingle}}
+	{{/each}}
+</template>
+
+<template name="InstagramAccountSingle">
+	<div class="tab-content col-sm-4">
+		<div class="tab-pane text-center active" data-id="{{this._id}}">
+			<h4><i class="fa fa-instagram"></i> <span class="username">{{this.username}}</span></h4>
+			<p>Status: {{#if this.active}} Active {{else}} Inactive {{/if}}</p>
+
+			<div class="payment">
+			{{#unless this.paid}}
+				<button class="instagram-payment btn btn-success" data-loading-text="Please wait...">
+					<span class="fa fa-shopping-cart"></span> &nbsp; Pay now
+				</button>
+			{{else}}
+				<button class="instagram-payment btn btn-success" disabled>
+					<span class="fa fa-check"></span> &nbsp; Paid
+				</button>
+			{{/unless}}
+			</div>
+
+			<hr>
+
+			<button class="edit-instagram-account btn btn-info" data-loading-text="Please wait...">
+				<span class="fa fa-pencil-square-o"></span> Edit
+			</button>
+			<button class="delete-instagram-account btn btn-danger" data-loading-text="Please wait...">
+				<span class="fa fa-times"></span> Delete
+			</button>
+		</div>
+	</div>
+</template>

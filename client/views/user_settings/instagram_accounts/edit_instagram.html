@@ -1,0 +1,228 @@
+<template name="UserSettingsEditInstagram">
+	<a class="btn btn-theme" href="{{pathFor 'user_settings.instagram_accounts'}}">Go Back</a>
+	<h2>
+		Edit Instagram Account
+	</h2>
+	{{#if errorMessage}}
+	<div class="alert alert-warning">
+		{{errorMessage}}
+	</div>
+	{{/if}}
+
+	{{#if infoMessage}}
+	<div class="alert alert-success">
+		{{{infoMessage}}}
+	</div>
+	{{/if}}
+
+
+	<form class="instagrams_form" role="form">
+		<div class="single-wrap" data-id="{{instagram_account._id}}">
+			<h4>Account: {{instagram_account.username}}</h4>
+			<div class="form-group">
+				<label for="username">
+					<i class="fa fa-instagram"></i> Username
+				</label>
+				<div class="input-div">
+					<input id="username" type="text" class="form-control" value="{{instagram_account.username}}" disabled>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password">
+					<i class="fa fa-instagram"></i> Password
+				</label>
+				<div class="input-div">
+					<input id="password" type="password" class="form-control" value="{{instagram_account.password}}" required>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="active">
+					Active?
+				</label>
+				<div class="input-div">
+					<input id="active" type="text" class="form-control" value="{{#if instagram_account.active}} Active {{else}} Inactive {{/if}}" disabled>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="paid">
+					Paid?
+				</label>
+				<div class="input-div">
+					<input id="paid" type="text" class="form-control" value="{{#if instagram_account.paid}} Paid {{else}} Unpaid {{/if}}" disabled>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="last-pay-date">
+					Last Pay Date
+				</label>
+				<div class="input-div">
+					<input id="last-pay-date" type="text" class="form-control" value="{{instagram_account.lastPayDate}}" disabled>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="target-audience">
+					Target Audience
+				</label>
+				<div class="input-div">
+					<input id="target-audience" type="text" class="form-control" value="{{instagram_account.targetAudience}}">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="features">
+					<h3>Features</h3>
+				</label>
+				<div class="input-div">
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.save_user_stats.active}} id="save_user_stats"  value="save_user_stats" data-onstyle="info">
+						<strong class="feature-label">Save User Stats</strong>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.like_hashtag.active}} id="like_hashtag" value="like_hashtag" data-onstyle="info">
+						<strong class="feature-label">Like Hashtag</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="hashtags">Hashtags:</label>
+								<input type="text" class="form-control" id="hashtags" placeholder="Enter hashtags separated by commas" value="{{instagram_account.features.like_hashtag.bot_params.hashtags}}">
+								<label for="hashtags_amount">Amount:</label>
+								<input type="number" class="form-control" id="hashtags_amount" placeholder="Your amount here" value="{{instagram_account.features.like_hashtag.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.like_medias_by_location.active}} id="like_medias_by_location" value="like_medias_by_location" data-onstyle="info">
+						<strong class="feature-label">Like Medias by Location</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="like_media_location">Locations:</label>
+								<input type="text" class="form-control" id="like_media_location" placeholder="Enter location name separated by commas" value="{{instagram_account.features.like_medias_by_location.bot_params.locations}}">
+								<label for="like_media_location_amount">Amount:</label>
+								<input type="number" class="form-control" id="like_media_location_amount" placeholder="Your amount here" value="{{instagram_account.features.like_medias_by_location.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.like_timeline.active}} id="like_timeline" value="like_timeline" data-onstyle="info">
+						<strong class="feature-label">Like Timeline</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="like_timeline_amount">Amount:</label>
+								<input type="number" class="form-control" id="like_timeline_amount" placeholder=" Your amount here" value="{{instagram_account.features.like_timeline.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.follow_user_followers.active}} id="follow_user_followers" value="follow_user_followers" data-onstyle="info">
+						<strong class="feature-label">Follow User Followers</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="follow_users">Users:</label>
+								<input type="text" class="form-control" id="follow_users" placeholder="Enter user name separated by commas" value="{{instagram_account.features.follow_user_followers.bot_params.users}}">
+								<label for="follow_users_amount">Amount:</label>
+								<input type="number" class="form-control" id="follow_users_amount" placeholder="Your amount here" value="{{instagram_account.features.follow_user_followers.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.follow_by_location.active}} id="follow_by_location" value="follow_by_location" data-onstyle="info">
+						<strong class="feature-label">Follow By Location</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="follow_locations">Locations:</label>
+								<input type="text" class="form-control" id="follow_locations" placeholder="Enter location name separated by commas" value="{{instagram_account.features.follow_by_location.bot_params.locations}}">
+								<label for="follow_locations_amount">Amount:</label>
+								<input type="number" class="form-control" id="follow_locations_amount" placeholder="Your amount here" value="{{instagram_account.features.follow_by_location.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.follow_likers_by_location.active}} id="follow_likers_by_location" value="follow_likers_by_location" data-onstyle="info">
+						<strong class="feature-label">Follow Likers By Location</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="follow_location_likers">Locations:</label>
+								<input type="text" class="form-control" id="follow_location_likers" placeholder="Enter location name separated by commas" value="{{instagram_account.features.follow_likers_by_location.bot_params.locations}}">
+								<label for="follow_location_likers_amount">Amount:</label>
+								<input type="number" class="form-control" id="follow_location_likers_amount" placeholder="Your amount here" value="{{instagram_account.features.follow_likers_by_location.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.like_likers_by_location.active}} id="like_likers_by_location" value="like_likers_by_location" data-onstyle="info">
+						<strong class="feature-label">Like Likers By Location</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="like_location_likers">Locations:</label>
+								<input type="text" class="form-control" id="like_location_likers" placeholder="Enter location name separated by commas" value="{{instagram_account.features.like_likers_by_location.bot_params.locations}}">
+								<label for="like_location_likers_amount">Amount:</label>
+								<input type="number" class="form-control" id="like_location_likers_amount" placeholder="Your amount here" value="{{instagram_account.features.like_likers_by_location.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.direct_message_followers.active}} id="direct_message_followers" value="direct_message_followers" data-onstyle="info">
+						<strong class="feature-label">Direct Message Followers</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="dm_followers">Locations:</label>
+								<input type="text" class="form-control" id="dm_followers" placeholder="Enter location name separated by commas" value="{{instagram_account.features.direct_message_followers.bot_params.locations}}">
+								<label for="dm_followers_amount">Amount:</label>
+								<input type="number" class="form-control" id="dm_followers_amount" placeholder="Your amount here" value="{{instagram_account.features.direct_message_followers.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.direct_message_new_followers.active}} id="direct_message_new_followers" value="direct_message_new_followers" data-onstyle="info">
+						<strong class="feature-label">Direct Message New Followers</strong>
+						<div class="col-md-12 params">
+							<div class="col-md-6">
+								<label for="dm_new_followers">Locations: </label>
+								<input type="text" class="form-control" id="dm_new_followers" placeholder="Enter location name separated by commas" value="{{instagram_account.features.direct_message_new_followers.bot_params.locations}}">
+								<label for="dm_new_followers_amount">Amount:: </label>
+								<input type="number" class="form-control" id="dm_new_followers_amount" placeholder="Your amount here" value="{{instagram_account.features.direct_message_new_followers.bot_params.amount}}">
+							</div>
+						</div>
+					</div>
+					<div class="ig-account-feature">
+						<input type="checkbox" {{checkedIf instagram_account.features.get_user_followers.active}} id="get_user_followers"  value="get_user_followers" data-onstyle="info">
+						<strong class="feature-label">Get User Followers</strong>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="submit-div">
+					<button id="form-submit-button" class="btn btn-success" type="submit" data-loading-text="Please wait...">
+						<span class="fa fa-check"></span>
+						Update Account Information
+					</button>
+					<a class="btn btn-theme" href="{{pathFor 'user_settings.instagram_accounts'}}">Go Back</a>
+				</div>
+			</div>
+		</div>
+	</form>
+</template>
